@@ -1,4 +1,4 @@
-xpackage com.hmw.decideease
+package com.hmw.decideease
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
