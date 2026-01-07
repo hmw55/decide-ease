@@ -6,37 +6,42 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.hmw.decideease.domain.coinflip.model.CoinSide
 
 @Composable
-fun CoinFlipScreen (
-    viewModel: CoinFlipViewModel
+fun CoinFlipScreen(
+    viewModel: CoinFlipViewModel,
+    onBack: () -> Unit
 ) {
     val uiState by viewModel.uiState.collectAsState()
 
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(24.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+            .padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(
-            text = when (uiState.result?.side) {
-                CoinSide.HEADS -> "Heads"
-                CoinSide.TAILS -> "Tails"
-                null -> "Flip the coin"
-            },
-            style = MaterialTheme.typography.headlineMedium
-        )
+        // Back button at the top
+        Button(onClick = onBack, modifier = Modifier.align(Alignment.Start)) {
+            Text("Back")
+        }
 
         Spacer(modifier = Modifier.height(32.dp))
 
-        Button (
+        Text("Coin Flip", style = MaterialTheme.typography.headlineMedium)
+
+        Spacer(modifier = Modifier.height(32.dp))
+
+        Button(
             onClick = { viewModel.flipCoin() },
             enabled = !uiState.isFlipping
         ) {
-            Text("Flip Coin")
+            Text(if (uiState.isFlipping) "Flipping..." else "Flip Coin")
+        }
+
+        Spacer(modifier = Modifier.height(32.dp))
+
+        uiState.result?.let { result ->
+            Text("Result: ${result.side.name}", style = MaterialTheme.typography.headlineSmall)
         }
     }
 }
