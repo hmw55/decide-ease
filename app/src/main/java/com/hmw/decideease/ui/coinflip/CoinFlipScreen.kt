@@ -7,6 +7,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
+
 @Composable
 fun CoinFlipScreen(
     viewModel: CoinFlipViewModel,
@@ -20,10 +21,6 @@ fun CoinFlipScreen(
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Back button at the top
-        Button(onClick = onBack, modifier = Modifier.align(Alignment.Start)) {
-            Text("Back")
-        }
 
         Spacer(modifier = Modifier.height(32.dp))
 

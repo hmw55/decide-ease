@@ -24,17 +24,19 @@ fun DecideEaseTopBar(
 ) {
     Surface(
         color = MaterialTheme.colorScheme.primary,
-        tonalElevation = 4.dp,
+        tonalElevation = 4.dp, // subtle shadow under the top bar
         modifier = Modifier
             .fillMaxWidth()
-            .height(56.dp)
+            .statusBarsPadding() // ensures we don’t overlap system bar
     ) {
         Row(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(64.dp) // taller top bar
+                .padding(horizontal = 12.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            // Left: Back button
             if (showBackButton && onBackClick != null) {
                 IconButton(onClick = onBackClick) {
                     Icon(
@@ -44,17 +46,15 @@ fun DecideEaseTopBar(
                     )
                 }
             } else {
-                Spacer(modifier = Modifier.width(48.dp)) // keep title centered
+                Spacer(modifier = Modifier.width(48.dp))
             }
 
-            // Center: Title
             Text(
                 text = title,
                 fontSize = 20.sp,
                 color = MaterialTheme.colorScheme.onPrimary
             )
 
-            // Right: Cart button
             if (onCartClick != null) {
                 IconButton(onClick = onCartClick) {
                     Icon(
@@ -64,7 +64,7 @@ fun DecideEaseTopBar(
                     )
                 }
             } else {
-                Spacer(modifier = Modifier.width(48.dp)) // keep title centered
+                Spacer(modifier = Modifier.width(48.dp))
             }
         }
     }
