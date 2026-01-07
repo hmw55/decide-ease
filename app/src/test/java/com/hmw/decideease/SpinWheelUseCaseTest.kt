@@ -1,6 +1,6 @@
 package com.hmw.decideease.domain.decisionwheel.usecase
 
-import com.hmw.decideease.domain.decisionwheel.model.Decision
+import com.hmw.decideease.domain.decisionwheel.model.WheelOption
 import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.junit.Assert.assertThrows
@@ -10,9 +10,9 @@ class SpinWheelUseCaseTest {
     @Test
     fun `spin returns one of the choices`() {
         val choices = listOf(
-            Decision(1, "Italian"),
-            Decision(2, "Mexican"),
-            Decision(3, "Greek")
+            WheelOption(1, "Italian"),
+            WheelOption(2, "Mexican"),
+            WheelOption(3, "Greek")
         )
 
         val spinWheel = SpinWheelUseCase()

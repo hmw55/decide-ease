@@ -1,6 +1,6 @@
 package com.hmw.decideease.domain.decisionwheel.model
 
-data class Decision(
-    val id : Int,
+data class WheelOption(
+//    val id : Int? =null,
     val label: String
 )

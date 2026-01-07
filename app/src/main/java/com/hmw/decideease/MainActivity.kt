@@ -19,9 +19,14 @@ import com.hmw.decideease.ui.home.HomeScreen
 import com.hmw.decideease.ui.theme.DecideEaseTheme
 import com.hmw.decideease.domain.coinflip.usecase.FlipCoinUseCase
 import com.hmw.decideease.domain.coinflip.util.DefaultRandomGenerator
+import com.hmw.decideease.domain.decisionwheel.usecase.SpinWheelUseCase
 import com.hmw.decideease.ui.coinflip.CoinFlipScreen
 import com.hmw.decideease.ui.coinflip.CoinFlipViewModel
 import com.hmw.decideease.ui.topbar.DecideEaseTopBar
+
+import com.hmw.decideease.ui.wheels.FoodWheelScreen
+import com.hmw.decideease.ui.wheels.FoodWheelOptions
+
 
 class MainActivity : ComponentActivity() {
 
@@ -51,13 +56,18 @@ class MainActivity : ComponentActivity() {
                     when (currentScreen) {
                         "home" -> HomeScreen(
                             onCoinFlipClick = { currentScreen = "coinFlip"},
-                            onFoodWheelClick = { /* TODO */ },
+                            onFoodWheelClick = { currentScreen = "foodWheelScreen" },
                             onMovieWheelClick = { /* TODO */ },
                             onCustomWheelClick = { /* TODO */ }
                         )
                         "coinFlip" -> CoinFlipScreen(
                             viewModel = coinFlipViewModel,
-                            onBack = { currentScreen = "home"})
+                            onBack = { currentScreen = "home"}
+                        )
+                        "foodWheelScreen" -> FoodWheelScreen(
+                            spinWheelUseCase =  SpinWheelUseCase(),
+                            onBack = { currentScreen = "home" }
+                        )
                     }
 
                 }
