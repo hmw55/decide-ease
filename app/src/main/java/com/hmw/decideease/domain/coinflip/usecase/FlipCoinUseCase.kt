@@ -1,8 +1,8 @@
-package com.hmw.decideease.domain.usecase
+package com.hmw.decideease.domain.coinflip.usecase
 
-import com.hmw.decideease.domain.model.CoinSide
-import com.hmw.decideease.domain.model.CoinFlipResult
-import com.hmw.decideease.domain.util.RandomGenerator
+import com.hmw.decideease.domain.coinflip.model.CoinSide
+import com.hmw.decideease.domain.coinflip.model.CoinFlipResult
+import com.hmw.decideease.domain.coinflip.util.RandomGenerator
 
 class FlipCoinUseCase(private val randomGenerator: RandomGenerator) {
 

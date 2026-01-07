@@ -1,4 +1,4 @@
-package com.hmw.decideease.domain.util
+package com.hmw.decideease.domain.coinflip.util
 
 import kotlin.random.Random
 

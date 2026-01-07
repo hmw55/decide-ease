@@ -1,8 +1,8 @@
 package com.hmw.decideease
 
-import com.hmw.decideease.domain.usecase.FlipCoinUseCase
-import com.hmw.decideease.domain.model.CoinSide
-import com.hmw.decideease.domain.util.TestRandomGenerator
+import com.hmw.decideease.domain.coinflip.usecase.FlipCoinUseCase
+import com.hmw.decideease.domain.coinflip.model.CoinSide
+import com.hmw.decideease.domain.coinflip.util.TestRandomGenerator
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

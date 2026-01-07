@@ -1,4 +1,4 @@
-package com.hmw.decideease.domain.model
+package com.hmw.decideease.domain.coinflip.model
 
 data class CoinFlipResult (
     val side: CoinSide,
